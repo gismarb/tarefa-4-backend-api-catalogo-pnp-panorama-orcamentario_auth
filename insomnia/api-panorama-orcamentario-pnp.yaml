@@ -1,0 +1,365 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: API CRUD do Panorama Orçamentário PNP
+meta:
+  id: wrk_5cf7de53a2b34a0fa1a2d8bfcb9fdce1
+  created: 1789843643165
+  modified: 1789843746420
+  description: ""
+collection:
+  - url: "{{ _.base_url }}/"
+    name: Status da API
+    meta:
+      id: req_1e039eadebb14e738bdb9dfa05405083
+      created: 1787834515459
+      modified: 1789843981596
+      isPrivate: false
+      description: ""
+      sortKey: -1787834515459
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators"
+    name: Listar Indicadores
+    meta:
+      id: req_3ceaae2193f840f1a8008a5af9d3d7a5
+      created: 1787834734582
+      modified: 1789843998625
+      isPrivate: false
+      description: ""
+      sortKey: -1787834734582
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/1"
+    name: Buscar indicador por ID
+    meta:
+      id: req_9941dcf32d4142d988624fb111206ebb
+      created: 1787834822528
+      modified: 1789845491692
+      isPrivate: false
+      description: ""
+      sortKey: -1787834822528
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/99999"
+    name: Buscar indicador inexistente
+    meta:
+      id: req_d136da166df64730b5ba1b640aefd179
+      created: 1787834883927
+      modified: 1789844107368
+      isPrivate: false
+      description: ""
+      sortKey: -1787834883927
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/abc"
+    name: Buscar com ID inválido
+    meta:
+      id: req_94b7826b47b846e8aabf7e03fd934165
+      created: 1789844067900
+      modified: 1789844088655
+      isPrivate: false
+      description: ""
+      sortKey: -1787834853227.5
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators"
+    name: Criar indicador válido
+    meta:
+      id: req_3852bb429a9148778af8b7fa8a03a311
+      created: 1789844770547
+      modified: 1789844833605
+      isPrivate: false
+      description: ""
+      sortKey: -1789844770547
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "year": 2025,
+          "institutionCode": "IFSULDEMINAS",
+          "institutionName": "Instituto Federal do Sul de Minas Gerais",
+          "region": "Sudeste",
+          "state": "Minas Gerais",
+          "stateCode": "MG",
+          "updatedBudget": 520000000.5,
+          "committedExpense": 490000000.25,
+          "liquidatedExpense": 450000000.1,
+          "paidExpense": 420000000,
+          "availableCredit": 30000000.25
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators"
+    name: Criar indicador com payload inválido
+    meta:
+      id: req_abb577b03b7b4655a5f34a90ca2dffbe
+      created: 1789844885721
+      modified: 1789844924505
+      isPrivate: false
+      description: ""
+      sortKey: -1789844885721
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "year": 2025,
+          "institutionCode": "X",
+          "institutionName": "",
+          "region": "Sudeste",
+          "state": "Minas Gerais",
+          "stateCode": "mg",
+          "updatedBudget": -100,
+          "committedExpense": 10,
+          "liquidatedExpense": 10,
+          "paidExpense": 10,
+          "availableCredit": 10
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Atualizar indicador parcialmente
+    meta:
+      id: req_e7855185e80a4dbfade55723004ef1df
+      created: 1789845215296
+      modified: 1789845254165
+      isPrivate: false
+      description: ""
+      sortKey: -1789845215296
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "availableCredit": 31000000.5
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Atualizar indicador com valor negativo
+    meta:
+      id: req_5f8cb019f5214969a83d31db59c16bad
+      created: 1789845274329
+      modified: 1789845301388
+      isPrivate: false
+      description: ""
+      sortKey: -1789845274329
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "paidExpense": -100
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Atualizar indicador com payload vazio
+    meta:
+      id: req_3e791ec3c86d4fbabaa2af7192df1810
+      created: 1789845331475
+      modified: 1789845359392
+      isPrivate: false
+      description: ""
+      sortKey: -1789845331475
+    method: PUT
+    body:
+      mimeType: application/json
+      text: "{}"
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/99999"
+    name: Atualizar indicador inexistente
+    meta:
+      id: req_dc921c1de1cd485f8a36677cab115970
+      created: 1789845374850
+      modified: 1789845408118
+      isPrivate: false
+      description: ""
+      sortKey: -1789845374850
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "availableCredit": 1000
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Excluir indicador
+    meta:
+      id: req_0a38c500b28846be9d9e4a1b9ddfac9a
+      created: 1789845795889
+      modified: 1789845823568
+      isPrivate: false
+      description: ""
+      sortKey: -1789845795889
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/99999"
+    name: Excluir indicador inexistente
+    meta:
+      id: req_f4d2e1d8dd944950afd960f912824525
+      created: 1789845849979
+      modified: 1789845878689
+      isPrivate: false
+      description: ""
+      sortKey: -1789845849979
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/abc"
+    name: Excluir com ID inválido
+    meta:
+      id: req_06e70760938e4568ba61244cb4eabf70
+      created: 1789845899412
+      modified: 1789845924057
+      isPrivate: false
+      description: ""
+      sortKey: -1789845899412
+    method: DELETE
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators"
+    name: Simular erro interno com banco indisponível
+    meta:
+      id: req_a9bc45f443e644a38e438b16c2709bd8
+      created: 1789845947126
+      modified: 1789845970179
+      isPrivate: false
+      description: ""
+      sortKey: -1789845947126
+    method: GET
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_daf0eb1a4efa4da3924820fffb2434ac
+    created: 1787834475742
+    modified: 1787834475742
+environments:
+  name: Base Environment
+  meta:
+    id: env_5a1058b53ff84eaa97b3c92821df98ab
+    created: 1787834475741
+    modified: 1789843870531
+    isPrivate: false
+  data:
+    base_url: http://localhost:3002

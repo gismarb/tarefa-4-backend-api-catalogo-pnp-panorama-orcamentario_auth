@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model BudgetIndicator {
+  id                Int      @id @default(autoincrement())
+  year              Int
+  institutionCode   String   @map("institution_code")
+  institutionName   String   @map("institution_name")
+  region            String
+  state             String
+  stateCode         String   @map("state_code")
+  updatedBudget     Decimal  @map("updated_budget") @db.Decimal(18, 2)
+  committedExpense  Decimal  @map("committed_expense") @db.Decimal(18, 2)
+  liquidatedExpense Decimal  @map("liquidated_expense") @db.Decimal(18, 2)
+  paidExpense       Decimal  @map("paid_expense") @db.Decimal(18, 2)
+  availableCredit   Decimal  @map("available_credit") @db.Decimal(18, 2)
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  @@map("budget_indicators")
+}
