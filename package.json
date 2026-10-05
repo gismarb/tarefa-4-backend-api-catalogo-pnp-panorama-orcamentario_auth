@@ -1,7 +1,7 @@
 {
-  "name": "tarefa-4-backend-api-catalogo-pnp-panorama-orcamentario-crud",
+  "name": "tarefa-4-backend-api-catalogo-pnp-panorama-orcamentario_auth",
   "version": "1.0.0",
-  "description": "API CRUD para gerenciamento de indicadores do Panorama Orçamentário da PNP com Express, Prisma e Zod.",
+  "description": "API de indicadores do Panorama Orçamentário da PNP com Express, Prisma, Zod e autenticação JWT.",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
