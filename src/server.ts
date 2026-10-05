@@ -12,6 +12,7 @@ import {
   formatZodIssues,
   parsePositiveIntegerId,
 } from "./utils/http.js";
+import { authRouter } from "./routes/auth.routes.js";
 
 const app = express();
 const PORT = Number(process.env.PORT ?? 3002);
@@ -27,6 +28,8 @@ app.use(
 );
 
 app.use(express.json());
+
+app.use("/api/auth", authRouter);
 
 app.get("/", (_request, response) => {
   response.json({
