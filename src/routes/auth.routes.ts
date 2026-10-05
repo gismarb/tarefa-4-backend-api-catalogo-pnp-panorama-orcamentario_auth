@@ -3,7 +3,10 @@ import bcrypt from "bcryptjs";
 import { ZodError } from "zod";
 import { Prisma } from "../generated/prisma/client.js";
 import { prisma } from "../lib/prisma.js";
-import { registerSchema } from "../schemas/auth.schema.js";
+import {
+  registerSchema,
+  loginSchema,
+} from "../schemas/auth.schema.js";
 import { formatZodIssues } from "../utils/http.js";
 import { generateToken } from "../utils/jwt.js";
 
@@ -72,6 +75,61 @@ authRouter.post("/register", async (request, response) => {
 
     response.status(500).json({
       error: "Erro interno ao cadastrar o usuário.",
+    });
+  }
+});
+
+authRouter.post("/login", async (request, response) => {
+  try {
+    const { email, password } = loginSchema.parse(request.body);
+
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (!user) {
+      response.status(401).json({
+        error: "E-mail ou senha incorretos.",
+      });
+      return;
+    }
+
+    const isPasswordValid = await bcrypt.compare(
+      password,
+      user.passwordHash,
+    );
+
+    if (!isPasswordValid) {
+      response.status(401).json({
+        error: "E-mail ou senha incorretos.",
+      });
+      return;
+    }
+
+    const token = generateToken(user.id);
+
+    response.status(200).json({
+      message: "Login realizado com sucesso.",
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+      },
+    });
+  } catch (error) {
+    if (error instanceof ZodError) {
+      response.status(400).json({
+        error: "Payload inválido.",
+        issues: formatZodIssues(error),
+      });
+      return;
+    }
+
+    console.error("Erro ao autenticar usuário:", error);
+
+    response.status(500).json({
+      error: "Erro interno ao autenticar o usuário.",
     });
   }
 });
