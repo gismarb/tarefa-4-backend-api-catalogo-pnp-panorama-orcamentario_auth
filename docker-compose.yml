@@ -1,16 +1,16 @@
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: postgres-pnp-panorama-crud
+    container_name: postgres-pnp-panorama-auth
     restart: unless-stopped
     environment:
       POSTGRES_USER: pnp_user
       POSTGRES_PASSWORD: pnp_password
-      POSTGRES_DB: pnp_panorama_crud
+      POSTGRES_DB: pnp_panorama_auth
     ports:
-      - "5433:5432"
+      - "5434:5432"
     volumes:
-      - postgres_crud_data:/var/lib/postgresql/data
+      - postgres_auth_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_crud_data:
+  postgres_auth_data:
