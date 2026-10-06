@@ -1,7 +1,7 @@
 import type { ZodError } from "zod";
 
 export function parsePositiveIntegerId(
-  value: string | undefined,
+  value: unknown,
 ): number | null {
   if (typeof value !== "string" || !/^[1-9]\d*$/.test(value)) {
     return null;

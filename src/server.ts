@@ -13,6 +13,7 @@ import {
   parsePositiveIntegerId,
 } from "./utils/http.js";
 import { authRouter } from "./routes/auth.routes.js";
+import { authMiddleware } from "./middlewares/auth.middleware.js";
 
 const app = express();
 const PORT = Number(process.env.PORT ?? 3002);
@@ -23,7 +24,7 @@ app.use(
   cors({
     origin: ALLOWED_ORIGIN,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
 
@@ -90,7 +91,7 @@ app.get("/api/budget-indicators/:id", async (request, response) => {
   }
 });
 
-app.post("/api/budget-indicators", async (request, response) => {
+app.post("/api/budget-indicators", authMiddleware, async (request, response) => {
   try {
     const data = createBudgetIndicatorSchema.parse(request.body);
 
@@ -116,7 +117,7 @@ app.post("/api/budget-indicators", async (request, response) => {
   }
 });
 
-app.put("/api/budget-indicators/:id", async (request, response) => {
+app.put("/api/budget-indicators/:id", authMiddleware, async (request, response) => {
   const id = parsePositiveIntegerId(request.params.id);
 
   if (id === null) {
@@ -164,7 +165,7 @@ app.put("/api/budget-indicators/:id", async (request, response) => {
   }
 });
 
-app.delete("/api/budget-indicators/:id", async (request, response) => {
+app.delete("/api/budget-indicators/:id", authMiddleware, async (request, response) => {
   const id = parsePositiveIntegerId(request.params.id);
 
   if (id === null) {
