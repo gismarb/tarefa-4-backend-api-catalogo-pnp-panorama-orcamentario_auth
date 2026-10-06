@@ -9,6 +9,10 @@ import {
 } from "../schemas/auth.schema.js";
 import { formatZodIssues } from "../utils/http.js";
 import { generateToken } from "../utils/jwt.js";
+import {
+  authMiddleware,
+  type AuthRequest,
+} from "../middlewares/auth.middleware.js";
 
 export const authRouter = Router();
 
@@ -132,4 +136,11 @@ authRouter.post("/login", async (request, response) => {
       error: "Erro interno ao autenticar o usuário.",
     });
   }
+});
+
+authRouter.get("/me", authMiddleware, (request: AuthRequest, response) => {
+  response.status(200).json({
+    message: "Usuário autenticado.",
+    user: request.user,
+  });
 });
