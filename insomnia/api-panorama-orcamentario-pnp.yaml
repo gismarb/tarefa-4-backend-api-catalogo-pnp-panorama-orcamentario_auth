@@ -1,18 +1,18 @@
 type: collection.insomnia.rest/5.0
 schema_version: "5.1"
-name: API CRUD do Panorama Orçamentário PNP
+name: API CRUD do Panorama Orçamentário PNP - Autenticação
 meta:
-  id: wrk_5cf7de53a2b34a0fa1a2d8bfcb9fdce1
-  created: 1789843643165
-  modified: 1789843746420
+  id: wrk_c3b61e5c69cf42bca6c7876de3fe9fe8
+  created: 1791207596391
+  modified: 1791379359423
   description: ""
 collection:
   - url: "{{ _.base_url }}/"
     name: Status da API
     meta:
-      id: req_1e039eadebb14e738bdb9dfa05405083
+      id: req_ebab169286a34bb9838a87beb1d63387
       created: 1787834515459
-      modified: 1789843981596
+      modified: 1791208122290
       isPrivate: false
       description: ""
       sortKey: -1787834515459
@@ -28,7 +28,7 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators"
     name: Listar Indicadores
     meta:
-      id: req_3ceaae2193f840f1a8008a5af9d3d7a5
+      id: req_94c2d111d6384fb2b66d31f84b414b48
       created: 1787834734582
       modified: 1789843998625
       isPrivate: false
@@ -46,7 +46,7 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/1"
     name: Buscar indicador por ID
     meta:
-      id: req_9941dcf32d4142d988624fb111206ebb
+      id: req_e55952e8d6a046f9bbd5abb7b6c505d5
       created: 1787834822528
       modified: 1789845491692
       isPrivate: false
@@ -64,7 +64,7 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/99999"
     name: Buscar indicador inexistente
     meta:
-      id: req_d136da166df64730b5ba1b640aefd179
+      id: req_d26d77c7beb140d8ab0e3c3dcb31dcac
       created: 1787834883927
       modified: 1789844107368
       isPrivate: false
@@ -82,7 +82,7 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/abc"
     name: Buscar com ID inválido
     meta:
-      id: req_94b7826b47b846e8aabf7e03fd934165
+      id: req_58a4221a283a499c95b443d0c6018a77
       created: 1789844067900
       modified: 1789844088655
       isPrivate: false
@@ -100,9 +100,9 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators"
     name: Criar indicador válido
     meta:
-      id: req_3852bb429a9148778af8b7fa8a03a311
+      id: req_4626c568960643138b10ecf4e2b72c83
       created: 1789844770547
-      modified: 1789844833605
+      modified: 1791379705380
       isPrivate: false
       description: ""
       sortKey: -1789844770547
@@ -126,6 +126,9 @@ collection:
     headers:
       - name: Content-Type
         value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -137,9 +140,9 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators"
     name: Criar indicador com payload inválido
     meta:
-      id: req_abb577b03b7b4655a5f34a90ca2dffbe
+      id: req_716b8bc77e004ea78c8ecf789b2dfafe
       created: 1789844885721
-      modified: 1789844924505
+      modified: 1791379726792
       isPrivate: false
       description: ""
       sortKey: -1789844885721
@@ -163,6 +166,9 @@ collection:
     headers:
       - name: Content-Type
         value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -174,9 +180,9 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/6"
     name: Atualizar indicador parcialmente
     meta:
-      id: req_e7855185e80a4dbfade55723004ef1df
+      id: req_a059eb0bc5274999923bca5b83a35344
       created: 1789845215296
-      modified: 1789845254165
+      modified: 1791379748207
       isPrivate: false
       description: ""
       sortKey: -1789845215296
@@ -190,6 +196,9 @@ collection:
     headers:
       - name: Content-Type
         value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -201,9 +210,9 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/6"
     name: Atualizar indicador com valor negativo
     meta:
-      id: req_5f8cb019f5214969a83d31db59c16bad
+      id: req_3c0ae76ae83b4a7282b3f5631e3d8a44
       created: 1789845274329
-      modified: 1789845301388
+      modified: 1791379805864
       isPrivate: false
       description: ""
       sortKey: -1789845274329
@@ -217,6 +226,9 @@ collection:
     headers:
       - name: Content-Type
         value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -228,9 +240,9 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/6"
     name: Atualizar indicador com payload vazio
     meta:
-      id: req_3e791ec3c86d4fbabaa2af7192df1810
+      id: req_d07d9db2e90c44fca7909e7a491e25fc
       created: 1789845331475
-      modified: 1789845359392
+      modified: 1791379842349
       isPrivate: false
       description: ""
       sortKey: -1789845331475
@@ -241,6 +253,9 @@ collection:
     headers:
       - name: Content-Type
         value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -252,9 +267,9 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/99999"
     name: Atualizar indicador inexistente
     meta:
-      id: req_dc921c1de1cd485f8a36677cab115970
+      id: req_d13ca9d5d2d643dc8f7d3fb7dbd166b9
       created: 1789845374850
-      modified: 1789845408118
+      modified: 1791379890599
       isPrivate: false
       description: ""
       sortKey: -1789845374850
@@ -268,6 +283,9 @@ collection:
     headers:
       - name: Content-Type
         value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -279,13 +297,16 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/6"
     name: Excluir indicador
     meta:
-      id: req_0a38c500b28846be9d9e4a1b9ddfac9a
+      id: req_2f8aa320650445bd924abe6e22a4ea66
       created: 1789845795889
-      modified: 1789845823568
+      modified: 1791379910269
       isPrivate: false
       description: ""
       sortKey: -1789845795889
     method: DELETE
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -297,13 +318,16 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/99999"
     name: Excluir indicador inexistente
     meta:
-      id: req_f4d2e1d8dd944950afd960f912824525
+      id: req_4cb88c0d1b864842b3b4df974913cd90
       created: 1789845849979
-      modified: 1789845878689
+      modified: 1791379931314
       isPrivate: false
       description: ""
       sortKey: -1789845849979
     method: DELETE
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -315,13 +339,16 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators/abc"
     name: Excluir com ID inválido
     meta:
-      id: req_06e70760938e4568ba61244cb4eabf70
+      id: req_4cf57926defb45c18403aac6cb3a2506
       created: 1789845899412
-      modified: 1789845924057
+      modified: 1791379973981
       isPrivate: false
       description: ""
       sortKey: -1789845899412
     method: DELETE
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -333,9 +360,9 @@ collection:
   - url: "{{ _.base_url }}/api/budget-indicators"
     name: Simular erro interno com banco indisponível
     meta:
-      id: req_a9bc45f443e644a38e438b16c2709bd8
+      id: req_4e00744e067b41529668d30d2ab8d37d
       created: 1789845947126
-      modified: 1789845970179
+      modified: 1791207746654
       isPrivate: false
       description: ""
       sortKey: -1789845947126
@@ -348,18 +375,622 @@ collection:
         send: true
         store: true
       rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/register"
+    name: Auth - Registro válido
+    meta:
+      id: req_742a60a694664f588a58dbb32bb50d46
+      created: 1791207663582
+      modified: 1791212228488
+      isPrivate: false
+      description: ""
+      sortKey: -1791207663582
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "  GISMAR@example.com  ",
+          "password": "abc123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/register"
+    name: Auth - Registro com e-mail duplicado
+    meta:
+      id: req_d3256737f9704a14a6018c4bc776d899
+      created: 1791212382871
+      modified: 1791212439514
+      isPrivate: false
+      description: ""
+      sortKey: -1791207663682
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "gismar@example.com",
+          "password": "abc123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/register"
+    name: Auth - Registro inválido
+    meta:
+      id: req_5ba3d6ad5db140f99ee3f6acb307b0c0
+      created: 1791212537514
+      modified: 1791212553679
+      isPrivate: false
+      description: ""
+      sortKey: -1791207663782
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "email-invalido",
+          "password": "123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/login"
+    name: Auth - Login válido
+    meta:
+      id: req_f85f6856923c4ae5909e7a061c04e87d
+      created: 1791213980525
+      modified: 1791214057079
+      isPrivate: false
+      description: ""
+      sortKey: -1791207663882
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "gismar@example.com",
+          "password": "abc123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/login"
+    name: Auth - Login com senha incorreta
+    meta:
+      id: req_32a62d179fde48f0bd66593d75a6fadf
+      created: 1791214125405
+      modified: 1791214140003
+      isPrivate: false
+      description: ""
+      sortKey: -1791207663982
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "gismar@example.com",
+          "password": "senha-incorreta"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/login"
+    name: Auth - Login com dados inválidos
+    meta:
+      id: req_01e2240b61d442d38a7b9a1aa7dfb63c
+      created: 1791214227055
+      modified: 1791214258051
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664082
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "email-invalido",
+          "password": ""
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/login"
+    name: Auth - Login com e-mail inexistente
+    meta:
+      id: req_30ff11756b7643fc915a328a73dd9782
+      created: 1791214361429
+      modified: 1791214418664
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664182
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "email": "nao-cadastrado@example.com",
+          "password": "abc123"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/me"
+    name: Auth - Me sem token
+    meta:
+      id: req_67ef08a5b6df40b596fe766795040812
+      created: 1791294814007
+      modified: 1791294861915
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664282
+    method: GET
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/me"
+    name: Auth - Me com token
+    meta:
+      id: req_bca47911551c44c5818a4a956c1d365f
+      created: 1791295040834
+      modified: 1791301304883
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664382
+    method: GET
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/me"
+    name: Auth - Me com token inválido
+    meta:
+      id: req_fae629d6c4f7438d910c19ad599294dd
+      created: 1791295192478
+      modified: 1791295218782
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664482
+    method: GET
+    authentication:
+      type: bearer
+      token: token-invalido
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators"
+    name: Indicadores - Criar sem token
+    meta:
+      id: req_16853ed007a14ae4a9eaaeeadb5b20ef
+      created: 1791298779504
+      modified: 1791298815071
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664582
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "year": 2025,
+          "institutionCode": "IFSULDEMINAS",
+          "institutionName": "Instituto Federal do Sul de Minas Gerais",
+          "region": "Sudeste",
+          "state": "Minas Gerais",
+          "stateCode": "MG",
+          "updatedBudget": 520000000.5,
+          "committedExpense": 490000000.25,
+          "liquidatedExpense": 450000000.1,
+          "paidExpense": 420000000,
+          "availableCredit": 30000000.25
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators"
+    name: Indicadores - Criar com token
+    meta:
+      id: req_180c971900be40d6bc2d6de84135070d
+      created: 1791299288150
+      modified: 1791301377102
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664682
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "year": 2025,
+          "institutionCode": "IFSULDEMINAS",
+          "institutionName": "Instituto Federal do Sul de Minas Gerais",
+          "region": "Sudeste",
+          "state": "Minas Gerais",
+          "stateCode": "MG",
+          "updatedBudget": 520000000.5,
+          "committedExpense": 490000000.25,
+          "liquidatedExpense": 450000000.1,
+          "paidExpense": 420000000,
+          "availableCredit": 30000000.25
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Indicadores - Atualizar sem token
+    meta:
+      id: req_feda3903366240ddbe2891b846607600
+      created: 1791299433262
+      modified: 1791299478688
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664782
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "availableCredit": 31000000.5
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Indicadores - Atualizar com token
+    meta:
+      id: req_4f3c3d77346547c284bd300c5c758dc9
+      created: 1791299531224
+      modified: 1791301398644
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664882
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "availableCredit": 31000000.5
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Indicadores - Excluir sem token
+    meta:
+      id: req_a78e712e63cc4c9d9a868b1e7c251dc5
+      created: 1791299684197
+      modified: 1791299724004
+      isPrivate: false
+      description: ""
+      sortKey: -1791207664982
+    method: DELETE
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Indicadores - Excluir com token
+    meta:
+      id: req_b1808fa0cf3a477d9c6fe59667ad7055
+      created: 1791299783379
+      modified: 1791301412338
+      isPrivate: false
+      description: ""
+      sortKey: -1791207665082
+    method: DELETE
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/1"
+    name: Indicadores - Consultar sem token
+    meta:
+      id: req_c9f8152767db45688560093a36235e96
+      created: 1791300070130
+      modified: 1791300281972
+      isPrivate: false
+      description: ""
+      sortKey: -1791207665182
+    method: GET
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/1"
+    name: Indicadores - Atualizar com payload inválido
+    meta:
+      id: req_e40aebd3e854434abeb74c2ad5708b6b
+      created: 1791300264143
+      modified: 1791301460349
+      isPrivate: false
+      description: ""
+      sortKey: -1791207665282
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "paidExpense": -1
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/abc"
+    name: Indicadores - Atualizar com ID inválido
+    meta:
+      id: req_9b60f9cb007049609ac4855049d61331
+      created: 1791300457013
+      modified: 1791301480752
+      isPrivate: false
+      description: ""
+      sortKey: -1791207665482
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "availableCredit": 31000000.5
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators/6"
+    name: Indicadores - Atualizar registro inexistente
+    meta:
+      id: req_669e508d6aed4a368f9ec93fdbe773e2
+      created: 1791300663332
+      modified: 1791301488121
+      isPrivate: false
+      description: ""
+      sortKey: -1791207665582
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "availableCredit": 31000000.5
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: bearer
+      token: "{{ _.auth_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/auth/me"
+    name: Auth - Me com token expirado
+    meta:
+      id: req_c4aacd7bdb0f48a1b9b9017b9f878b7e
+      created: 1791300781306
+      modified: 1791301655103
+      isPrivate: false
+      description: ""
+      sortKey: -1791207665682
+    method: GET
+    authentication:
+      type: bearer
+      token: "{{ _.expired_token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.base_url }}/api/budget-indicators"
+    name: Indicadores - Listar sem token
+    meta:
+      id: req_261141f371ca42dbbde535e30d133b16
+      created: 1791300894554
+      modified: 1791300911203
+      isPrivate: false
+      description: ""
+      sortKey: -1791207665782
+    method: GET
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
-    id: jar_daf0eb1a4efa4da3924820fffb2434ac
+    id: jar_42caee27c952426698460925942b6771
     created: 1787834475742
     modified: 1787834475742
 environments:
   name: Base Environment
   meta:
-    id: env_5a1058b53ff84eaa97b3c92821df98ab
+    id: env_4096cfec83e84492af7d7ceb2f8fd1cb
     created: 1787834475741
-    modified: 1789843870531
+    modified: 1791301672781
     isPrivate: false
   data:
-    base_url: http://localhost:3002
+    base_url: http://localhost:3003
+    auth_token: ""
+    expired_token: ""
